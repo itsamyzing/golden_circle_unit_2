@@ -1,33 +1,27 @@
 from lib.most_often import *
 
-# Test to see if one item appears most often
-
-def test_returns_most_frequent_item():
+def test_retruns_most_frequent_item():
     most = MostOften([1, 2, 1])
     assert most.get_most_often() == 1
 
-# Test for two items being the same and resulting in a tie
-
-def test_returns_no_clear_winner_when_two_the_same():
+def test_returns_no_clear_winner_when_two_items_tie():
     most = MostOften([1, 2])
     assert most.get_most_often() == "no clear winner"
 
-# Add new item to the list to get winner 
+def test_returns_no_clear_winner_when_multiple_otems_tie():
+    most = MostOften([1, 2, 1, 2])
+    assert most.get_most_often() == "no clear winner"
 
-def test_add_new_item_to_list():
+def test_add_new_creates_a_winner():
     most = MostOften([1, 2])
     most.add_new(1)
     assert most.get_most_often() == 1
 
-# Add new iten to the list to get tie
-
-def test_add_new_iten_to_list_for_tie():
-    most = MostOften([1, 2, 1])
+def test_add_new_creates_a_tie():
+    most = MostOften([1, 1, 2])
     most.add_new(2)
     assert most.get_most_often() == "no clear winner"
 
-# Test to see if multiple items will tie
-
-def test_to_see_if_no_clear_winner_on_multiple_tie():
-    most = MostOften([1, 2, 3])
+def test_equal_count_branch_is_hit():
+    most = MostOften([1, 1, 2, 2, 3])
     assert most.get_most_often() == "no clear winner"

@@ -1,5 +1,3 @@
-# File: lib/most_often.py
-
 class MostOften:
     def __init__(self, starting_list):
         self.starting_list = starting_list
@@ -32,3 +30,4 @@ class MostOften:
         # otherwise we'll say there's "no clear winner"
         else:
             return "no clear winner"
+
